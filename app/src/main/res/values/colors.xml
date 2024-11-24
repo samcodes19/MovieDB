@@ -1,0 +1,41 @@
+<resources>
+    <!-- Primary Color: Cinematic Teal -->
+    <color name="primaryColor">#008080</color> <!-- Teal for a movie vibe, cool and professional -->
+
+    <!-- Secondary Color: Golden Yellow -->
+    <color name="secondaryColor">#FFCC00</color> <!-- Bright yellow for highlights, like movie posters -->
+
+    <!-- Background Color: Soft Light Gray -->
+    <color name="backgroundColor">#F5F5F5</color> <!-- Light gray for the background, ensuring readability -->
+
+    <!-- Text Colors -->
+    <color name="primaryTextColor">#212121</color> <!-- Dark gray for main text, good for readability -->
+    <color name="secondaryTextColor">#757575</color> <!-- Light gray for secondary text, such as movie descriptions -->
+
+    <!-- Accent Color: Coral for Interactive Elements -->
+    <color name="accentColor">#FF5722</color> <!-- Coral for buttons and active elements (e.g., 'View Details' button) -->
+
+    <!-- Card and View Background -->
+    <color name="cardBackground">#FFFFFF</color> <!-- White for cards, making the content stand out -->
+
+    <!-- Button Color: Light Blue for Submit -->
+    <color name="buttonColor">#03A9F4</color> <!-- Light blue for buttons, provides a calming effect -->
+
+    <!-- Divider Color -->
+    <color name="dividerColor">#E0E0E0</color> <!-- Soft gray for divider lines, subtle but effective separation -->
+
+    <!-- Status Bar Color -->
+    <color name="statusBarColor">#008080</color> <!-- Teal for the status bar, matching the primary color -->
+
+    <!-- Toolbar Color -->
+    <color name="toolbarColor">#004D40</color> <!-- Darker Teal for the toolbar, maintaining consistency with the status bar -->
+
+    <!-- Error Color -->
+    <color name="errorColor">#D32F2F</color> <!-- Red for errors (e.g., if the movie name or cost is missing) -->
+
+    <!-- Success Color -->
+    <color name="successColor">#388E3C</color> <!-- Green for success messages (e.g., "Movie Added Successfully!") -->
+
+    <!-- Focus Color (e.g., when the input fields are focused) -->
+    <color name="focusColor">#6200EE</color> <!-- Purple for focus effect on text fields, providing contrast and interest -->
+</resources>
