@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:id="@+id/main"
     android:background="@color/backgroundColor">
 
     <!-- Title: Add Movie -->
@@ -21,7 +22,7 @@
     <EditText
         android:id="@+id/movieName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Movie Name"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/secondaryTextColor"
@@ -34,7 +35,7 @@
     <EditText
         android:id="@+id/movieTheatre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Movie Theatre"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/secondaryTextColor"
@@ -47,7 +48,7 @@
     <EditText
         android:id="@+id/movieCost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Cost"
         android:textColor="@color/primaryTextColor"
         android:textColorHint="@color/secondaryTextColor"
