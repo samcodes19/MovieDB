@@ -1,6 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <!-- Variable to bind the movie object -->
         <variable
             name="movie"
             type="com.example.moviedb.database.Movie" />
@@ -21,27 +20,23 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Movie Name -->
             <TextView
                 android:id="@+id/movieNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Movie Name"
-                android:text="@{movie.name}" /> <!-- Bind the movie's name -->
+                android:text="@{movie.name}" />
 
-            <!-- Movie Theatre -->
             <TextView
                 android:id="@+id/movieTheatreText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{movie.theatre}" /> <!-- Bind the movie's theatre -->
+                android:text="@{movie.theatre}" />
 
-            <!-- Movie Cost -->
             <TextView
                 android:id="@+id/movieCostText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`Cost: $${movie.cost.toString()}`}" /> <!-- Format and bind movie cost -->
+                android:text="@{`Cost: $${movie.cost.toString()}`}" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

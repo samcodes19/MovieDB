@@ -5,7 +5,6 @@
     android:padding="16dp"
     android:background="@color/backgroundColor">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         android:titleTextColor="@android:color/white"
         android:elevation="4dp" />
 
-    <!-- RecyclerView for Movies -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRecyclerView"
         android:layout_width="match_parent"

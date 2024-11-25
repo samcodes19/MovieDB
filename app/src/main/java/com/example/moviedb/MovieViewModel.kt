@@ -19,4 +19,8 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
             movieDao.insert(movie)
         }
     }
+
+    fun getMovieById(id: Int): LiveData<Movie?> {
+        return movieDao.getMovieById(id)
+    }
 }
