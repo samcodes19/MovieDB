@@ -2,45 +2,41 @@ package com.example.moviedb
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviedb.database.Movie
 import com.example.moviedb.databinding.ActivityMovieItemBinding
-//import com.example.moviedb.databinding.MovieListItemBinding
+import com.example.moviedb.database.Movie
 
-class MovieAdapter(private val clickListener: (Movie) -> Unit) :
-    ListAdapter<Movie, MovieAdapter.MovieViewHolder>(DiffCallback()) {
+class MovieAdapter(private val onClick: (Movie) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    class MovieViewHolder(private val binding: ActivityMovieItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(movie: Movie, clickListener: (Movie) -> Unit) {
-            binding.movieNameText.text = movie.name // Bind movie name
-            binding.root.setOnClickListener { clickListener(movie) }
-        }
-    }
+    private var movies: List<Movie> = listOf() // Initialize as an empty list
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = ActivityMovieItemBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
+        val binding = ActivityMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
+        val movie = movies[position]
+        holder.bind(movie)
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Movie>() {
-        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-            return oldItem.id == newItem.id
-        }
+    override fun getItemCount(): Int = movies.size
 
-        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-            return oldItem == newItem
+    // This function updates the list of movies in the adapter
+    fun submitList(newMovies: List<Movie>) {
+        movies = newMovies
+        notifyDataSetChanged() // Notify the adapter that the data set has changed
+    }
+
+    inner class MovieViewHolder(private val binding: ActivityMovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(movie: Movie) {
+            // Bind only the movie name to the TextView
+            binding.movieNameText.text = movie.name
+
+            // Set click listener to pass movie data to MovieItem activity
+            binding.root.setOnClickListener {
+                onClick(movie)
+            }
         }
     }
 }
-
-

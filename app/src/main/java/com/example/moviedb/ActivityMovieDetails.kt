@@ -18,19 +18,24 @@ class ActivityMovieDetails : AppCompatActivity() {
         binding = ActivityMovieDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set up RecyclerView Adapter and LayoutManager
         adapter = MovieAdapter { movie -> showMovieDetails(movie) }
         binding.moviesRecyclerView.adapter = adapter
         binding.moviesRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Observe all movies and update the adapter when data changes
         viewModel.allMovies.observe(this) { movies ->
+            // Update the adapter with the new list of movies
             adapter.submitList(movies)
         }
     }
 
+    // Handle item clicks and pass movie details to the next activity
     private fun showMovieDetails(movie: Movie) {
-        val intent = Intent(this, MovieItem::class.java).apply {
-            putExtra("movieId", movie.id)
-        }
+        val intent = Intent(this, MovieItem::class.java)
+        intent.putExtra("movieName", movie.name)
+        intent.putExtra("movieTheatre", movie.theatre)
+        intent.putExtra("movieCost", movie.cost)
         startActivity(intent)
     }
 }
