@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.moviedb.database.Movie
 import com.example.moviedb.database.MovieDatabase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
@@ -15,12 +14,8 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     val allMovies: LiveData<List<Movie>> = movieDao.getAllMovies()
 
     fun insertMovie(movie: Movie) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             movieDao.insert(movie)
         }
-    }
-
-    fun getMovieById(id: Int): LiveData<Movie?> {
-        return movieDao.getMovieById(id)
     }
 }

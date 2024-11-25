@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.moviedb.database.Movie
 import com.example.moviedb.databinding.ActivityMainBinding
 
@@ -26,20 +27,15 @@ class MainActivity : AppCompatActivity() {
                 val movie = Movie(name = name, theatre = theatre, cost = cost)
                 viewModel.insertMovie(movie)
                 Toast.makeText(this, "Movie Added", Toast.LENGTH_SHORT).show()
-                clearInputFields()
-            } else {
-                Toast.makeText(this, "Please enter valid movie details", Toast.LENGTH_SHORT).show()
+
+                binding.movieName.text.clear()
+                binding.movieTheatre.text.clear()
+                binding.movieCost.text.clear()
             }
         }
 
         binding.viewDetailsButton.setOnClickListener {
             startActivity(Intent(this, ActivityMovieDetails::class.java))
         }
-    }
-
-    private fun clearInputFields() {
-        binding.movieName.text.clear()
-        binding.movieTheatre.text.clear()
-        binding.movieCost.text.clear()
     }
 }
